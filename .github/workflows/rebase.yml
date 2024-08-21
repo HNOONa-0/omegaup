@@ -25,6 +25,6 @@ jobs:
           autosquash: ${{ contains(github.event.comment.body, '/autosquash') || contains(github.event.comment.body, '/rebase-autosquash') }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  run-ci:
+  CI:
     needs: rebase
     uses: ./.github/workflows/ci.yml
