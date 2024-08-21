@@ -26,4 +26,5 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   run-ci:
+    needs: rebase
     uses: ./.github/workflows/ci.yml
