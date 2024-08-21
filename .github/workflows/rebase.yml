@@ -27,4 +27,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   CI:
     needs: rebase
+    if: ${{ false }} # Trigger CI after rebase if desired.
     uses: ./.github/workflows/ci.yml
