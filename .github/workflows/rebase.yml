@@ -17,14 +17,14 @@ jobs:
       - name: Checkout the latest code
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.PAT }}
           fetch-depth: 0 # otherwise, you will fail to push refs to dest repo
       - name: Automatic Rebase
         uses: cirrus-actions/rebase@1.8
         with:
           autosquash: ${{ contains(github.event.comment.body, '/autosquash') || contains(github.event.comment.body, '/rebase-autosquash') }}
         env:
-          token: ${{ secrets.PAT }}
+          GITHUB_TOKEN: ${{ secrets.PAT }}
   CI:
     needs: rebase
     if: ${{ false }} # Trigger CI after rebase if desired.
